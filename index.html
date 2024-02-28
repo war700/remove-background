@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,13 @@
     </header>
     <main>
         <section id="image-upload">
-            <label for="file-input" class="upload-label">Select Image:</label>
-            <input type="file" id="file-input" accept="image/*">
-            <button onclick="removeBackground()">Remove Background</button>
+            <div class="upload-container">
+                <label for="file-input" class="upload-label">
+                    <span>Drag & Drop Image or Click Here</span>
+                    <input type="file" id="file-input" accept="image/*" onchange="handleFileSelect(event)">
+                </label>
+            </div>
+            <button id="remove-background-btn" onclick="removeBackground()">Remove Background</button>
             <div id="loader" class="hidden"></div>
         </section>
         <section id="result" class="hidden">
