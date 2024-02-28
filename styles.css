@@ -1,0 +1,66 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+main {
+    padding: 1rem;
+}
+
+#image-upload {
+    margin-bottom: 1rem;
+}
+
+.upload-label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#file-input {
+    display: none;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+#loader {
+    text-align: center;
+    margin-top: 1rem;
+    display: none;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+#result {
+    text-align: center;
+}
+
+.image-container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
