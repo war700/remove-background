@@ -1,3 +1,14 @@
+function handleFileSelect(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function(event) {
+        const imageUrl = event.target.result;
+        const uploadLabel = document.querySelector('.upload-label');
+        uploadLabel.innerHTML = `<img src="${imageUrl}" alt="Uploaded Image">`;
+    };
+    reader.readAsDataURL(file);
+}
+
 async function removeBackground() {
     const fileInput = document.getElementById('file-input');
     const resultSection = document.getElementById('result');
@@ -18,20 +29,12 @@ async function removeBackground() {
     loader.style.display = 'inline-block';
 
     try {
-        // Send image data to server for processing
-        const response = await fetch('/process-image', {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (!response.ok) {
-            throw new Error('Failed to process image');
-        }
+        // Simulate processing delay (for demonstration purposes)
+        await new Promise(resolve => setTimeout(resolve, 1000));
 
-        const resultData = await response.json();
-
-        // Display result image
-        resultImage.innerHTML = `<img src="${resultData.resultUrl}" alt="Result Image">`;
+        // Simulate success (for demonstration purposes)
+        const imageUrl = URL.createObjectURL(file);
+        resultImage.innerHTML = `<img src="${imageUrl}" alt="Result Image">`;
         resultSection.classList.remove('hidden');
     } catch (error) {
         console.error(error.message);
@@ -41,4 +44,5 @@ async function removeBackground() {
         loader.style.display = 'none';
     }
 }
+
 
